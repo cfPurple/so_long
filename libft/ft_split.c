@@ -10,20 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-void freetab(char **tab)
+void	freetab(char **tab)
 {
-	int n;
+	int	i;
 
-	n = 0;
-	while (tab[n])
-	{
-		free(tab[n]);
-		n++;
+	i = 0;
+	while (tab[i])
+	{	
+		free(tab[i]);
+		i++;
 	}
 	free(tab);
 }
+
 int	w_count(char *s, char c)
 {
 	int	nbr;
@@ -72,7 +74,7 @@ char	**writetab(char **tab, char *str, char c)
 		if (c != *str && *str)
 		{
 			tab[n] = malloc(sizeof(char) * (c_count(str, c) + 1));
-			if (tab[n] == NULL)
+			if (!tab[n])
 				return (freetab(tab), NULL);
 		}
 		i = 0;
@@ -84,14 +86,11 @@ char	**writetab(char **tab, char *str, char c)
 	return (tab);
 }
 
-
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
 	char	*str;
-	int n;
 
-	n = 0;
 	if (!s)
 		return (NULL);
 	str = (char *)s;

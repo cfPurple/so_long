@@ -6,15 +6,14 @@
 /*   By: cfelix <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:33:46 by cfelix            #+#    #+#             */
-/*   Updated: 2022/11/09 13:33:51 by cfelix           ###   ########.fr       */
+/*   Updated: 2022/12/06 17:22:36 by cfelix           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
-		return 1;
-	else 
-		return 0;
+		return (1);
+	else
+		return (0);
 }

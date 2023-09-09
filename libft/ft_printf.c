@@ -67,13 +67,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (length);
 }
-
-/*
-int main()
-{
-
-	printf(" %p %p ", 0, 0);
-	ft_printf(" %p %p ", 0, 0);
-
-}
-*/

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cfelix <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/09 15:08:46 by cfelix            #+#    #+#             */
+/*   Updated: 2023/09/09 15:09:29 by cfelix           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
 # include "libft.h"
 # include "mlx.h"
-#include <sys/stat.h>
+# include <sys/stat.h>
 
 typedef struct s_map
 {
@@ -20,24 +32,16 @@ typedef struct s_map
 	int				count;
 }				t_map;
 
-typedef struct s_frames
-{
-	void	**f;
-	int		nbframes;
-}				t_frames;
 
 typedef struct s_vars
 {
-	void			*tate;
 	void			*mlx;
 	void			*win;
-	void			*img;
-	void			*bg;
-	void			*mc;
-	void			*l;
-	void			*c;
-	void			*e;
-	void			*esc;
+	void			*floor;
+	void			*wall;
+	void			*mario;
+	void			*key;
+	void			*exit;
 	unsigned int	x;
 	unsigned int	y;
 	unsigned int	topx;
@@ -46,7 +50,6 @@ typedef struct s_vars
 	unsigned int	count;
 	unsigned int	items;
 	char			**map;
-	unsigned int	dir;
 	int				contain;	
 }				t_vars;
 
@@ -71,25 +74,12 @@ int		close_esc(t_vars *vars);
 int		getkey(int keycode, t_vars *vars);
 void	show_map(t_vars vars);
 void	vars_init(t_vars *vars, t_map *data);
-void	put_grass(t_vars *vars, int x, int y);
-void	put_tree(t_vars *vars, int x, int y);
-void	put_play(t_vars *vars, int x, int y);
-void	put_ex(t_vars *vars, int x, int y);
-
-int		inithorizontal(t_vars *vars);
-int		initup(t_vars *vars);
-int		initframes(t_vars *vars);
-int		startframe(t_vars *vars, t_frames *frames, char *s, int nb);
-void	preppath(char *s, char *nbr, char *text);
-char	**textforframes(char *s, int nb);
-int		slidein(char *s, char *content, int index);
-int		close_all(t_vars *vars);
-void	close_anim(t_vars *vars, t_frames frames);
+void	put_floor(t_vars *vars, int x, int y);
+void	put_wall(t_vars *vars, int x, int y);
+void	put_mario(t_vars *vars, int x, int y);
+void	put_exit(t_vars *vars, int x, int y);
+int		ft_index(const char *str, char c);
 int		checkall(char *name, t_map *data);
-int		initdown(t_vars *vars);
-int		top_g(t_vars *vars);
-void	close1(t_vars *vars);
-int	getkeyb(int keycode, t_vars *vars);
-void	gameover(t_vars *vars, char c);
+
 
 #endif

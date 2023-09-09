@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cfelix <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/09 15:07:48 by cfelix            #+#    #+#             */
+/*   Updated: 2023/09/09 15:07:51 by cfelix           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	close_esc(t_vars *vars)
 {
-	mlx_destroy_image(vars->mlx, vars->img);
-	mlx_destroy_image(vars->mlx, vars->mc);
-	mlx_destroy_image(vars->mlx, vars->bg);
-	mlx_destroy_image(vars->mlx, vars->c);
-	mlx_destroy_image(vars->mlx, vars->e);
+	mlx_destroy_image(vars->mlx, vars->floor);
+	mlx_destroy_image(vars->mlx, vars->mario);
+	mlx_destroy_image(vars->mlx, vars->wall);
+	mlx_destroy_image(vars->mlx, vars->key);
+	mlx_destroy_image(vars->mlx, vars->exit);
 	mlx_destroy_window(vars->mlx, vars->win);
 	mlx_destroy_display(vars->mlx);
 	ft_clear((void **)vars->map);
@@ -42,7 +54,7 @@ void	show_map(t_vars vars)
 			else if (vars.map[y][x] == 'P')
 				put_mario(&vars, x, y);
 			else if (vars.map[y][x] == 'C')
-				mlx_put_image_to_window(vars.mlx, vars.win, vars.c,
+				mlx_put_image_to_window(vars.mlx, vars.win, vars.key,
 					x * 64, y * 64);
 			else if (vars.map[y][x] == 'E')
 				put_exit(&vars, x, y);

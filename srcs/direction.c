@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   direction.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cfelix <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/09 15:06:40 by cfelix            #+#    #+#             */
+/*   Updated: 2023/09/09 15:07:33 by cfelix           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	gps(t_map *data, int *x, int *y, char c)
@@ -18,10 +30,24 @@ void	gps(t_map *data, int *x, int *y, char c)
 	}
 }
 
-void ft_clear(void **data)
+void	ft_clear(void **data)
 {
-    if (data == NULL)
-        return ;
-    free(*data);
-    *data = NULL;
+	if (data == NULL)
+		return ;
+	free(*data);
+	*data = NULL;
+}
+
+int	ft_index(const char *str, char c)
+{
+	int index;
+
+	index = 0;
+	while (str[index])
+	{
+		if (str[index] == c)
+			return index;
+		index++;
+	}
+	return (-1);
 }

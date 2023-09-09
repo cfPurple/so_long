@@ -1,16 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   travel.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cfelix <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/09 15:05:16 by cfelix            #+#    #+#             */
+/*   Updated: 2023/09/09 15:06:19 by cfelix           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	walk_right(t_vars *vars)
 {
-	vars->dir = 0;
 	if (vars->map[vars->y][vars->x + 1] != '1')
 	{
 		vars->move++;
 		if (vars->map[vars->y][vars->x] == 'E' && vars->count != vars->items)
-			mlx_put_image_to_window(vars->mlx, vars->win, vars->e,
+			mlx_put_image_to_window(vars->mlx, vars->win, vars->exit,
 				vars->x * 64, vars->y * 64);
 		else
-			mlx_put_image_to_window(vars->mlx, vars->win, vars->img,
+			mlx_put_image_to_window(vars->mlx, vars->win, vars->floor,
 				vars->x * 64, vars->y * 64);
 		vars->x += 1;
 	}
@@ -18,15 +29,14 @@ void	walk_right(t_vars *vars)
 
 void	walk_left(t_vars *vars)
 {
-	vars->dir = 1;
 	if (vars->map[vars->y][vars->x - 1] != '1')
 	{
 		vars->move++;
 		if (vars->map[vars->y][vars->x] == 'E' && vars->count != vars->items)
-			mlx_put_image_to_window(vars->mlx, vars->win, vars->e,
+			mlx_put_image_to_window(vars->mlx, vars->win, vars->exit,
 				vars->x * 64, vars->y * 64);
 		else
-			mlx_put_image_to_window(vars->mlx, vars->win, vars->img,
+			mlx_put_image_to_window(vars->mlx, vars->win, vars->floor,
 				vars->x * 64, vars->y * 64);
 		vars->x -= 1;
 	}
@@ -38,10 +48,10 @@ void	walk_up(t_vars *vars)
 	{
 		vars->move++;
 		if (vars->map[vars->y][vars->x] == 'E' && vars->count != vars->items)
-			mlx_put_image_to_window(vars->mlx, vars->win, vars->e,
+			mlx_put_image_to_window(vars->mlx, vars->win, vars->exit,
 				vars->x * 64, vars->y * 64);
 		else
-			mlx_put_image_to_window(vars->mlx, vars->win, vars->img,
+			mlx_put_image_to_window(vars->mlx, vars->win, vars->floor,
 				vars->x * 64, vars->y * 64);
 		vars->y -= 1;
 	}
@@ -53,10 +63,10 @@ void	walk_down(t_vars *vars)
 	{
 		vars->move++;
 		if (vars->map[vars->y][vars->x] == 'E' && vars->count != vars->items)
-			mlx_put_image_to_window(vars->mlx, vars->win, vars->e,
+			mlx_put_image_to_window(vars->mlx, vars->win, vars->exit,
 				vars->x * 64, vars->y * 64);
 		else
-			mlx_put_image_to_window(vars->mlx, vars->win, vars->img,
+			mlx_put_image_to_window(vars->mlx, vars->win, vars->floor,
 				vars->x * 64, vars->y * 64);
 		vars->y += 1;
 	}

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cfelix <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/09 15:04:59 by cfelix            #+#    #+#             */
+/*   Updated: 2023/09/09 15:05:01 by cfelix           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	main(int argc, char **argv)
@@ -11,7 +23,6 @@ int	main(int argc, char **argv)
 		return (0);
 	data.name = argv[1];
 	vars.move = 0;
-	vars.dir = 0;
 	vars.count = 0;
 	if (checkall(data.name, &data) == 0)
 		return (0);

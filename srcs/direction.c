@@ -30,12 +30,20 @@ void	gps(t_map *data, int *x, int *y, char c)
 	}
 }
 
-void	ft_clear(void **data)
+void ft_clear(void **data)
 {
+    int i
+
+    i = 0;
 	if (data == NULL)
 		return ;
-	free(*data);
-	*data = NULL;
+    while (data[i])
+    {
+        free(data[i]);
+        i++;
+    }
+    free(data);
+    *data = NULL;
 }
 
 int	ft_index(const char *str, char c)
